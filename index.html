@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulkit Singh — Operations & Project Management</title>
+<meta name="description" content="Pulkit Singh is an operations and project management professional who builds systems that scale. MS in Information Systems, Salesforce Certified, Six Sigma Yellow Belt. Specializing in Project Coordination, Business Analysis, and Agile delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f2ec;
+    --cream: #ede9e0;
+    --accent: #c8622a;
+    --accent-soft: #f0ddd2;
+    --muted: #7a7469;
+    --border: rgba(15,14,12,0.12);
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 5vw;
+    background: rgba(245,242,236,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.2rem; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--ink); font-size: 0.875rem;
+    font-weight: 400; opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--ink); color: var(--paper);
+    padding: 8px 18px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--accent); transform: scale(0.97); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 120px 5vw 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 20%, #e8ddd0 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, #ddd5c8 0%, transparent 50%),
+                var(--paper);
+    z-index: 0;
+  }
+  .hero-grain {
+    position: absolute; inset: 0; z-index: 1; opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 960px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-soft); border: 1px solid rgba(200,98,42,0.2);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 500; color: var(--accent);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .hero-name {
+    font-family: var(--serif); font-size: clamp(3.5rem, 9vw, 8.5rem);
+    line-height: 0.9; letter-spacing: -0.025em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.25rem); color: var(--muted);
+    max-width: 520px; line-height: 1.6; font-weight: 300;
+    margin-bottom: 48px;
+    text-wrap: pretty;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--ink); color: var(--paper);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: scale(0.97); }
+  .btn-secondary {
+    background: transparent; color: var(--ink);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 400; text-decoration: none;
+    border: 1px solid var(--border);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { background: var(--cream); transform: scale(0.97); }
+
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 72px;
+    padding-top: 40px; border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .stat-num { font-family: var(--serif); font-size: 2.2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 5vw; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 48px;
+    text-wrap: balance; max-width: 700px;
+  }
+
+  /* ── CREDENTIALS BAND ── */
+  .credentials {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 5vw;
+    display: flex; align-items: center; gap: 0; overflow-x: auto;
+  }
+  .cred-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 36px; border-right: 1px solid var(--border);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .cred-item:first-child { padding-left: 0; }
+  .cred-item:last-child { border-right: none; }
+  .cred-icon { width: 28px; height: 28px; background: var(--ink); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .cred-icon svg { width: 14px; height: 14px; fill: var(--paper); }
+  .cred-text { font-size: 0.82rem; font-weight: 500; }
+  .cred-sub { font-size: 0.7rem; color: var(--muted); }
+
+  /* ── WORK GRID ── */
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .case-card {
+    background: var(--cream);
+    padding: 48px;
+    cursor: pointer;
+    transition: background 0.25s;
+    position: relative; overflow: hidden;
+    min-height: 380px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .case-card:hover { background: var(--accent-soft); }
+  .case-card.featured { grid-column: 1 / -1; min-height: 440px; }
+  .case-card::after {
+    content: '→';
+    position: absolute; top: 48px; right: 48px;
+    font-size: 1.4rem; opacity: 0.25;
+    transition: opacity 0.2s, transform 0.3s;
+  }
+  .case-card:hover::after { opacity: 1; transform: translate(4px, -4px); }
+  .case-tag {
+    display: inline-block;
+    background: rgba(15,14,12,0.08);
+    padding: 4px 10px; border-radius: 100px;
+    font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 24px;
+    color: var(--muted);
+  }
+  .case-title {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 16px; max-width: 480px;
+  }
+  .case-desc {
+    font-size: 0.9rem; color: var(--muted); line-height: 1.65;
+    max-width: 440px; font-weight: 300; text-wrap: pretty;
+    margin-bottom: 32px;
+  }
+  .case-metrics {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    padding-top: 28px; border-top: 1px solid var(--border);
+  }
+  .metric-val { font-family: var(--serif); font-size: 1.8rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .metric-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* ── CASE STUDY MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(15,14,12,0.6);
+    backdrop-filter: blur(4px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--paper);
+    max-width: 780px; width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    animation: modalIn 0.35s cubic-bezier(0.2,0,0,1) both;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-header {
+    background: var(--cream);
+    padding: 48px 56px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 24px; right: 24px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--ink); color: var(--paper);
+    border: none; cursor: pointer; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .modal-close:hover { background: var(--accent); transform: scale(0.96); }
+  .modal-tag {
+    font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px;
+  }
+  .modal-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .modal-summary { font-size: 0.95rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .modal-body { padding: 48px 56px; }
+  .modal-metrics {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    margin-bottom: 48px;
+  }
+  .modal-metric { text-align: center; padding: 20px 12px; background: var(--cream); border-radius: 10px; }
+  .modal-metric .val { font-family: var(--serif); font-size: 2rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .modal-metric .lbl { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+  .cs-section { margin-bottom: 36px; }
+  .cs-section-label {
+    font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  .cs-section p { font-size: 0.92rem; line-height: 1.75; color: var(--ink); font-weight: 300; }
+  .cs-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .cs-list li {
+    font-size: 0.88rem; line-height: 1.6; padding-left: 20px; position: relative;
+    color: var(--ink); font-weight: 300;
+  }
+  .cs-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .tools-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .tool-badge {
+    background: var(--cream); border: 1px solid var(--border);
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 500;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .about-visual {
+    background: var(--cream);
+    aspect-ratio: 3/4; border-radius: 12px;
+    display: flex; align-items: flex-end; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .about-initials {
+    font-family: var(--serif); font-size: 9rem; line-height: 1;
+    color: rgba(15,14,12,0.06); position: absolute; top: -10px; left: 20px;
+    letter-spacing: -0.05em;
+  }
+  .about-card {
+    background: var(--paper); border-radius: 8px; padding: 20px 24px;
+    position: relative; z-index: 1;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    width: 100%;
+  }
+  .about-card-name { font-family: var(--serif); font-size: 1.3rem; }
+  .about-card-role { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+  .about-text { font-size: 0.95rem; line-height: 1.8; color: var(--ink); font-weight: 300; text-wrap: pretty; }
+  .about-text + .about-text { margin-top: 20px; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
+  .skill-item {
+    background: var(--cream); padding: 14px 18px; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 500;
+  }
+  .skill-item span { color: var(--muted); font-weight: 400; font-size: 0.75rem; display: block; margin-top: 2px; }
+
+  /* ── THOUGHT LEADERSHIP ── */
+  .thought-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .thought-card {
+    background: var(--cream); border-radius: 12px; padding: 32px;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .thought-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+  .thought-type { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px; }
+  .thought-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .thought-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--ink); color: var(--paper);
+    text-align: center; padding: 120px 5vw;
+  }
+  .contact-section .section-label { color: rgba(245,242,236,0.4); }
+  .contact-section .section-title { color: var(--paper); margin: 0 auto 24px; }
+  .contact-section .section-title em { color: var(--accent); font-style: italic; }
+  .contact-sub { font-size: 1rem; color: rgba(245,242,236,0.55); max-width: 480px; margin: 0 auto 48px; line-height: 1.65; font-weight: 300; }
+  .contact-email {
+    font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(245,242,236,0.2);
+    padding-bottom: 4px; letter-spacing: -0.01em;
+    transition: color 0.2s, border-color 0.2s;
+    display: inline-block; margin-bottom: 48px;
+  }
+  .contact-email:hover { color: var(--accent); border-color: var(--accent); }
+  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    background: rgba(245,242,236,0.08); color: var(--paper);
+    padding: 10px 22px; border-radius: 100px; text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; border: 1px solid rgba(245,242,236,0.12);
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: rgba(245,242,236,0.3);
+    padding: 20px 5vw; font-size: 0.75rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(245,242,236,0.06);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .work-grid { grid-template-columns: 1fr; }
+    .case-card.featured { min-height: 320px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-visual { aspect-ratio: 2/1; }
+    .thought-grid { grid-template-columns: 1fr; }
+    .modal-metrics { grid-template-columns: repeat(2, 1fr); }
+    .modal-header, .modal-body { padding: 32px 28px; }
+    .nav-links { display: none; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pulkit Singh</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#thoughts">Insights</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Open to opportunities
+    </div>
+    <h1 class="hero-name">Pulkit<br><em>Singh</em></h1>
+    <p class="hero-tagline">
+      MS Information Systems · Salesforce Certified · Six Sigma Yellow Belt. I build the systems behind smooth operations — turning scattered workflows, siloed data, and unclear ownership into repeatable, measurable processes.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View Case Studies</a>
+      <a href="#about" class="btn-secondary">About Me</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Cross-functional teams managed</div>
+      </div>
+      <div>
+        <div class="stat-num">15K+</div>
+        <div class="stat-label">Records migrated & cleansed</div>
+      </div>
+      <div>
+        <div class="stat-num">8×</div>
+        <div class="stat-label">Faster VIP response times</div>
+      </div>
+      <div>
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Reduction in manual triage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS BAND -->
+<div class="credentials">
+  <div class="cred-item">
+    <div class="cred-icon"><svg viewBox="0 0 16 16"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 6h14" stroke="#f5f2ec" stroke-width="1.2" fill="none"/></svg></div>
+    <div><div class="cred-text">Salesforce Admin</div><div class="cred-sub">Certified, 2022</div></div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2" stroke="#f5f2ec" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+    <div><div class="cred-text">Agile / Scrum</div><div class="cred-sub">Atlassian Certified</div></div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-icon"><svg viewBox="0 0 16 16"><polygon points="8,2 14,14 2,14" fill="none" stroke="#f5f2ec" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+    <div><div class="cred-text">Six Sigma</div><div class="cred-sub">Yellow Belt · AIGPE</div></div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-icon"><svg viewBox="0 0 16 16"><path d="M2 12 L5 7 L8 9 L11 4 L14 6" stroke="#f5f2ec" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div><div class="cred-text">Jira · Asana · MS Project</div><div class="cred-sub">Project tracking</div></div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-icon"><svg viewBox="0 0 16 16"><rect x="3" y="2" width="10" height="12" rx="1.5"/><path d="M5 6h6M5 9h6M5 12h4" stroke="#f5f2ec" stroke-width="1.2" fill="none"/></svg></div>
+    <div><div class="cred-text">Tableau · Power BI</div><div class="cred-sub">Data visualization</div></div>
+  </div>
+  <div class="cred-item">
+    <div class="cred-icon"><svg viewBox="0 0 16 16"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-3 10-3 10 0" stroke="#f5f2ec" stroke-width="1.3" fill="none"/></svg></div>
+    <div><div class="cred-text">MS Information Systems</div><div class="cred-sub">Pace University · GPA 3.89</div></div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Projects that shipped, not just slides.</h2>
+
+  <div class="work-grid">
+    <!-- Card 1: Salesforce Featured -->
+    <div class="case-card featured" onclick="openModal('salesforce')">
+      <div>
+        <div class="case-tag">Project Management · Business Analysis · Salesforce</div>
+        <h3 class="case-title">Salesforce Service Cloud Migration & VIP Routing Automation</h3>
+        <p class="case-desc">Migrated a manual, Excel-based support workflow into Salesforce Service Cloud for a luxury fashion retailer. Designed the To-Be architecture, built automated CLV-based routing, and cleansed 15,000+ records to achieve zero-ticket-loss deployment.</p>
+      </div>
+      <div class="case-metrics">
+        <div><div class="metric-val">80%</div><div class="metric-label">Manual triage reduced</div></div>
+        <div><div class="metric-val">8×</div><div class="metric-label">Faster VIP response</div></div>
+        <div><div class="metric-val">15K+</div><div class="metric-label">Records cleansed</div></div>
+        <div><div class="metric-val">0</div><div class="metric-label">Tickets lost post-launch</div></div>
+      </div>
+    </div>
+
+    <!-- Card 2: Cecil -->
+    <div class="case-card" onclick="openModal('cecil')">
+      <div>
+        <div class="case-tag">Project Coordinator · Operations</div>
+        <h3 class="case-title">Managing the "Cecil" Projects at CX by Design</h3>
+        <p class="case-desc">Led 3 intern teams across a full semester to build CX by Design's client acquisition, awareness, and journey systems — from scratch, on deadline.</p>
+      </div>
+      <div class="case-metrics">
+        <div><div class="metric-val">3</div><div class="metric-label">Teams managed</div></div>
+        <div><div class="metric-val">12+</div><div class="metric-label">People coordinated</div></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Circler -->
+    <div class="case-card" onclick="openModal('circler')">
+      <div>
+        <div class="case-tag">Operations · Client Success · Product</div>
+        <h3 class="case-title">Client Support & Operations at Circler.io</h3>
+        <p class="case-desc">Reduced repetitive support tickets, improved onboarding, and aligned product messaging across channels for an AI-powered bookkeeping platform.</p>
+      </div>
+      <div class="case-metrics">
+        <div><div class="metric-val">↓</div><div class="metric-label">Repeat support tickets</div></div>
+        <div><div class="metric-val">↑</div><div class="metric-label">Demo-to-trial conversions</div></div>
+      </div>
+    </div>
+
+    <!-- Card 4: DocFlow -->
+    <div class="case-card" onclick="openModal('docflow')">
+      <div>
+        <div class="case-tag">Technical PM · Scrum · AI-Augmented Delivery</div>
+        <h3 class="case-title">DocFlow — Full-Stack Collaborative Editor</h3>
+        <p class="case-desc">Scoped, architected, and shipped a secure SaaS document editor with permission-based sharing — from brief to live deployment in under 6 hours.</p>
+      </div>
+      <div class="case-metrics">
+        <div><div class="metric-val">6h</div><div class="metric-label">Timebox</div></div>
+        <div><div class="metric-val">Live</div><div class="metric-label">Deployed on Vercel</div></div>
+      </div>
+    </div>
+
+    <!-- Card 5: Aflac -->
+    <div class="case-card" onclick="openModal('aflac')">
+      <div>
+        <div class="case-tag">Quality Analyst · Agile SDLC · Compliance</div>
+        <h3 class="case-title">Software Delivery & Quality Operations at Aflac</h3>
+        <p class="case-desc">2.5 years managing Agile software delivery as a contractor — coordinating onshore/offshore teams, enforcing WCAG 2.0 compliance, and ensuring milestone alignment across cross-functional engineering projects.</p>
+      </div>
+      <div class="case-metrics">
+        <div><div class="metric-val">2.5yr</div><div class="metric-label">Duration</div></div>
+        <div><div class="metric-val">WCAG</div><div class="metric-label">2.0 AA compliant</div></div>
+      </div>
+    </div>
+
+    <!-- Card 6: Tableau Academic -->
+    <div class="case-card" onclick="openModal('tableau')">
+      <div>
+        <div class="case-tag">Business Intelligence · Tableau · Data Analysis</div>
+        <h3 class="case-title">The Fashion-Tech Operations & Profitability Diagnostic</h3>
+        <p class="case-desc">A 3-tier Tableau analysis diagnosing $130M in sales vs. -5.2% margin erosion — pinpointing California as a logistics risk and worst-offender SKUs driving return losses.</p>
+      </div>
+      <div class="case-metrics">
+        <div><div class="metric-val">$130M</div><div class="metric-label">Sales analyzed</div></div>
+        <div><div class="metric-val">-5.2%</div><div class="metric-label">Margin erosion found</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THOUGHT LEADERSHIP -->
+<section id="thoughts" style="background: var(--cream);">
+  <div class="section-label">Thought Leadership</div>
+  <h2 class="section-title">Thinking out loud about operations.</h2>
+  <div class="thought-grid">
+    <div class="thought-card">
+      <div class="thought-type">Playbook</div>
+      <div class="thought-title">AI Tools Adoption Playbook for Operations & Project Teams</div>
+      <p class="thought-desc">A practical framework for selecting, piloting, and governing AI tools — built from managing three cross-functional teams. Covers evaluation matrices, rollout checklists, ROI models, and guardrails for when NOT to use AI.</p>
+    </div>
+    <div class="thought-card">
+      <div class="thought-type">Framework</div>
+      <div class="thought-title">Busy vs. Effective</div>
+      <p class="thought-desc">Why filling your calendar is not the same as making progress. A decision filter for prioritizing what actually moves the needle — and letting manufactured urgency go.</p>
+    </div>
+    <div class="thought-card">
+      <div class="thought-type">Case Analysis</div>
+      <div class="thought-title">When Standard Salesforce Features Beat Custom Code</div>
+      <p class="thought-desc">Lessons from the Velvet & Vogue migration: how building entirely on declarative automation kept technical debt near-zero and empowered the team to own their system post-handoff.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-initials">PV</div>
+      <div class="about-card">
+        <div class="about-card-name">Pulkit Singh (She/Her)</div>
+        <div class="about-card-role">Operations & Project Management</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">About</div>
+      <h2 class="section-title" style="margin-bottom: 28px;">Systems thinker. Operator at heart.</h2>
+      <p class="about-text">I'm a New York-based operations and project management professional with an MS in Information Systems (GPA 3.89) from Pace University and a BE in Computer Science. I'm Salesforce Administrator certified, Six Sigma Yellow Belt, and Atlassian Agile certified — and I've put all three to work in real environments.</p>
+      <p class="about-text">I've led cross-functional Agile teams, built Salesforce automation from scratch, shipped data quality programs across 15,000+ records, and written the playbooks that help organizations actually adopt new tools. Before New York, I spent 2.5 years as a Quality Analyst at Aflac in Bangalore, managing Agile software delivery and WCAG 2.0 compliance across onshore and offshore teams.</p>
+      <p class="about-text">Currently targeting entry-level roles in <strong>Project Coordination, Business Analysis, Creative Operations,</strong> and <strong>Scrum/Agile delivery</strong> — roles where I can bring structure to ambiguity and keep things moving.</p>
+      <div class="skills-grid">
+        <div class="skill-item">Project Management <span>Jira, Asana, MS Project, RACI</span></div>
+        <div class="skill-item">Business Analysis <span>User stories, gap analysis, process mapping</span></div>
+        <div class="skill-item">CRM & Automation <span>Salesforce (certified), HubSpot</span></div>
+        <div class="skill-item">Data Visualization <span>Tableau, Power BI, Excel</span></div>
+        <div class="skill-item">Agile & Scrum <span>Sprints, standups, backlog mgmt</span></div>
+        <div class="skill-item">Quality & Compliance <span>Six Sigma, WCAG 2.0, UAT</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's build something <em>that works.</em></h2>
+  <p class="contact-sub">I'm actively looking for entry-level opportunities in Project Coordination, Business Analysis, and Operations. If you need someone who can think in systems and ship with clarity — let's talk.</p>
+  <a href="mailto:pulkitsinghhm@gmail.com" class="contact-email">pulkitsinghhm@gmail.com</a>
+  <div class="contact-links">
+    <a href="https://linkedin.com/in/pulkitsingh" class="contact-link">LinkedIn</a>
+    <a href="#" class="contact-link">Resume →</a>
+    <a href="#" class="contact-link">201-736-9464</a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Pulkit Singh</div>
+  <div>Project Coordinator · Business Analyst · Operations Manager</div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-content">
+    <!-- injected by JS -->
+  </div>
+</div>
+
+<script>
+const cases = {
+  salesforce: {
+    tag: "Project Management · Business Analysis · Salesforce",
+    title: "Salesforce Service Cloud Migration & VIP Routing Automation",
+    company: "Velvet & Vogue — London | Paris | New York",
+    summary: "End-to-end PoC migration of a manual customer support workflow into Salesforce Service Cloud. Designed the To-Be architecture, implemented CLV-based automated routing, and cleansed 15,000+ records to deliver immediate operational value.",
+    metrics: [
+      { val: "80%", lbl: "Manual triage reduced" },
+      { val: "8×", lbl: "Faster VIP response" },
+      { val: "15K+", lbl: "Records cleansed" },
+      { val: "0", lbl: "Tickets lost" }
+    ],
+    sections: [
+      { label: "Context & Problem", content: "Velvet & Vogue managed customer support through a single shared inbox, with customer data scattered across disconnected Excel spreadsheets. High-value customers (CLV > $1,000) received the same priority as standard requests, creating retention risk. There was no single source of truth." },
+      { label: "Objective", content: "Migrate the legacy workflow into Salesforce Service Cloud, eliminate manual ticket triage, and ensure VIP customers receive dedicated, prioritized support — all without introducing custom code that would create future technical debt." },
+      { label: "What I Did", items: [
+        "Conducted As-Is state analysis and documented the current-state pain points across shared inbox, data silos, and delayed response",
+        "Designed the To-Be system architecture: Web-to-Case integration, CLV-based assignment rules, centralized Contact and Case objects",
+        "Authored 10+ user stories with strict acceptance criteria aligned to business objectives",
+        "Created a RACI matrix for clear ownership across technical and business stakeholders",
+        "Built and maintained a Risk Register with mitigation strategies (including dirty data, spam submissions, user adoption)",
+        "Governed delivery through Agile sprints in Jira with daily standups and sprint reviews",
+        "Deduplicated and cleansed 15,000+ records before migration — standardizing formatting, purging corrupt data, validating CLV fields",
+        "Configured Salesforce: Web-to-Case forms, assignment rules routing CLV >$1,000 tickets to dedicated VIP queue, macros, dashboards"
+      ]},
+      { label: "Key Trade-offs", content: "Built entirely on declarative Salesforce features (no Apex code) to minimize technical debt and ensure the team could maintain the system post-handoff. This meant some edge cases required workarounds, but it reduced long-term risk significantly." },
+      { label: "Impact", items: [
+        "80% reduction in manual ticket triage through automated routing",
+        "VIP response time reduced from 48 hours to 4 hours (8× improvement)",
+        "Zero lost tickets post-deployment through centralized audit trails",
+        "100% data integrity across Contact and Case objects"
+      ]},
+      { label: "Tools Used", tools: ["Salesforce Service Cloud", "Jira", "Excel (data cleansing)", "Web-to-Case", "Agile / Scrum"] }
+    ]
+  },
+  cecil: {
+    tag: "Project Coordinator · Operations",
+    title: "Managing the Cecil Projects — CX by Design",
+    company: "CX by Design — Fall 2025",
+    summary: "Led three intern teams (12+ people) across a full semester to design and deliver CX by Design's core scaling systems: client acquisition, brand awareness, and client journey experience. All three systems were handed off with documentation and implementation readiness for 2026.",
+    metrics: [
+      { val: "3", lbl: "Teams led" },
+      { val: "12+", lbl: "People coordinated" },
+      { val: "3", lbl: "Systems delivered" },
+      { val: "Fall '25", lbl: "Duration" }
+    ],
+    sections: [
+      { label: "Context", content: "CX by Design needed to scale. The 'Cecil' persona represented their ideal client — but the company lacked repeatable systems for finding, reaching, and retaining Cecil. Three intern teams were assembled to tackle finding, awareness, and client experience simultaneously." },
+      { label: "My Role", content: "I served as Project Manager across all three teams, translating project briefs into Asana boards with tasks, subtasks, due dates, and owners — then keeping 12+ interns on track through weekly check-ins, mid-week accountability follow-ups, and cross-team coordination." },
+      { label: "What I Managed", items: [
+        "Team 1: Discovering & engaging Cecil — persona critique, ecosystem mapping, prospecting prototypes, pipeline redesign",
+        "Team 2: Building awareness — content audit, competitor benchmarking, content journey map, outreach strategy",
+        "Team 3: Client journey — current state audit, peer journey analysis, future-state journey design, touchpoint prototypes",
+        "Cross-team integration: ensuring Team 2's content strategy aligned with Team 3's client journey, and Team 1's pipeline connected to Team 3's onboarding",
+        "Stakeholder feedback loops: coordinating review windows with Lis, Diana, and Stephanie Bailey"
+      ]},
+      { label: "Challenges & How I Solved Them", items: [
+        "Scheduling conflicts: Built buffer time into the plan and used shared availability tools",
+        "Delayed stakeholder feedback: Proactively scheduled feedback windows and sent reminders in advance",
+        "Task accountability gaps: Introduced mid-week check-ins and clarified dependencies earlier in the sprint",
+        "Siloed team outputs: Scheduled alignment sessions where deliverables intersected across teams"
+      ]},
+      { label: "Outcomes", items: [
+        "Delivered three complete, documented system designs ready for 2026 implementation",
+        "All final deliverables included: workflow diagrams, templates, ownership roles, and triggers",
+        "Improved on-time task delivery across all three teams through consistent tracking and check-ins",
+        "CX by Design gained integrated visibility across finding, awareness, and client experience for the first time"
+      ]},
+      { label: "Tools Used", tools: ["Asana", "HubSpot", "Google Docs", "Weekly standups", "Stakeholder reviews"] }
+    ]
+  },
+  circler: {
+    tag: "Operations · Client Success · Product Coordination",
+    title: "Client Support & Operations at Circler.io",
+    company: "Circler.io — 2025 (Ongoing)",
+    summary: "Product & Marketing Coordinator for an AI-powered bookkeeping platform for ticket brokers. Reduced repetitive support tickets, streamlined onboarding, improved website messaging, and built community channels — while managing cross-functional delivery in Jira.",
+    metrics: [
+      { val: "↓", lbl: "Repeat tickets" },
+      { val: "↑", lbl: "Demo conversions" },
+      { val: "2", lbl: "New support channels" },
+      { val: "Jira", lbl: "PM tool" }
+    ],
+    sections: [
+      { label: "Context & Challenge", content: "Circler.io's AI reconciliation product delivered clear value — but onboarding friction, repetitive support tickets, and misaligned website messaging were preventing brokers from activating successfully. The team needed better systems for client support, onboarding, and cross-functional coordination." },
+      { label: "What I Did", items: [
+        "Created and tracked tasks in Jira for bug fixes, feature rollouts, and support escalations",
+        "Documented FAQs and common client questions to reduce repeat support volume",
+        "Scheduled and managed client demos via Calendly with structured follow-up email sequences",
+        "Performed UAT testing for new features and built Python automation scripts for repetitive test cases",
+        "Monitored user behavior with Hotjar and Google Analytics to identify friction points",
+        "Updated the Circler.io website (Wix) to emphasize AI-powered reconciliation benefits over technical details",
+        "Designed and managed automated onboarding email sequences in Mailchimp",
+        "Launched and moderated a Discord community and WhatsApp groups for real-time client support"
+      ]},
+      { label: "Key Insight", content: "Repetition in support tickets was a symptom of unclear onboarding, not product failure. By addressing the documentation and messaging gaps upstream, reactive support demand dropped — and clients activated faster." },
+      { label: "Outcomes", items: [
+        "Reduced repetitive support tickets through improved onboarding materials and documentation",
+        "Increased demo-to-trial conversions through simplified messaging and clear CTAs",
+        "Built two new real-time support channels (Discord + WhatsApp), reducing churn by solving problems faster",
+        "Created structured internal workflows enabling faster cross-team response times"
+      ]},
+      { label: "Tools Used", tools: ["Jira", "HubSpot", "Mailchimp", "Hotjar", "Google Analytics", "Python", "Wix", "Discord", "Calendly"] }
+    ]
+  },
+  docflow: {    tag: "Technical PM · AI-Augmented Delivery",
+    title: "DocFlow — Full-Stack Collaborative Editor",
+    company: "Ajaia LLC Technical Assessment — 6-Hour Timebox",
+    summary: "Scoped, architected, and shipped a secure SaaS document editor with permission-based sharing as a high-stakes technical assessment. Delivered from brief to live deployment in under one business day — with deliberate scope trade-offs and an AI-augmented workflow.",
+    metrics: [
+      { val: "6h", lbl: "Delivery timebox" },
+      { val: "1", lbl: "Deployment surface" },
+      { val: "Live", lbl: "Vercel deployment" },
+      { val: "0", lbl: "Auth servers built" }
+    ],
+    sections: [
+      { label: "Context", content: "Ajaia LLC required a demonstration of end-to-end product delivery under a strict 6-hour constraint. The brief called for a functional, deployed document editor with user permissions and file sharing." },
+      { label: "Strategic Architectural Choices", items: [
+        "Monolithic deployment via Next.js API routes — reducing deployment surfaces and shipping as a single Vercel project",
+        "Structured data persistence with Tiptap's JSON serialization directly to a Postgres JSONB column in Supabase",
+        "Leveraged Supabase managed Auth + Row Level Security (RLS) to secure document sharing without a custom auth server"
+      ]},
+      { label: "Features Delivered", items: [
+        "Rich text engine: bold, italic, headings, lists via Tiptap headless editor",
+        "Permission-based sharing: document owners grant access by email; recipients see shared files with 'Shared with you' badge",
+        "File ingestion: .txt and .docx uploads, parsed server-side and converted to Tiptap JSON nodes",
+        "QoL tools: 30-second auto-save, Cmd+S shortcuts, real-time word/character counts, document search/filtering"
+      ]},
+      { label: "Deliberate Trade-offs (Scope Management)", content: "To protect the core feature set's stability, I intentionally de-scoped real-time multi-user collaboration, version history, role-based permissions, and in-document commenting — estimating 4–6 hours each. This is the Technical Program Manager mindset: managing scope against a hard deadline rather than compromising delivery." },
+      { label: "AI-Augmented Workflow", content: "Used Claude as a thinking partner for architectural decisions and boilerplate acceleration. All AI outputs were personally reviewed, verified, and overridden where judgment required it. The AI accelerated execution; the decisions remained mine." },
+      { label: "Tools Used", tools: ["Next.js", "TypeScript", "Supabase", "Tiptap / ProseMirror", "Tailwind CSS", "Vercel", "Claude (AI collaboration)"] }
+    ]
+  },
+  aflac: {
+    tag: "Quality Analyst · Agile SDLC · Compliance",
+    title: "Software Delivery & Quality Operations at Aflac",
+    company: "Aflac — Bangalore, India · July 2021 – January 2024",
+    summary: "2.5 years managing Agile software delivery as a Quality Analyst contractor at one of the US's largest supplemental insurers. Coordinated onshore/offshore cross-functional teams, enforced WCAG 2.0 accessibility compliance, and ensured timely milestone delivery across multiple software projects.",
+    metrics: [
+      { val: "2.5yr", lbl: "Tenure" },
+      { val: "WCAG", lbl: "2.0 AA compliant" },
+      { val: "Agile", lbl: "SDLC methodology" },
+      { val: "Multi", lbl: "Team coordination" }
+    ],
+    sections: [
+      { label: "Context", content: "Aflac required consistent quality and on-time delivery across software projects managed by distributed teams — with onshore business stakeholders in the US and technology teams in Bangalore. My role bridged that gap, ensuring nothing fell through the seams of communication or compliance." },
+      { label: "What I Did", items: [
+        "Managed planning and delivery of software technology projects using Agile SDLC practices across full project lifecycles",
+        "Led cross-functional teams through project execution, aligning delivery to organizational milestones and standards",
+        "Contributed to WCAG 2.0 Level A & AA accessibility compliance across software products — supporting both technical and organizational adherence",
+        "Coordinated extensively between onshore business teams (US) and technology teams (India) to ensure seamless communication on requirements, blockers, and deliverables",
+        "Ensured development teams adhered to organizational quality and process standards at each sprint milestone"
+      ]},
+      { label: "Key Strengths Developed", items: [
+        "Cross-cultural, distributed team coordination across significant time zones and communication styles",
+        "Translating business requirements from onshore stakeholders into actionable technical tasks for engineering teams",
+        "Accessibility standards compliance (WCAG 2.0) — bridging technical implementation with regulatory requirements",
+        "Sustained delivery accountability over a multi-year engagement in a large enterprise environment"
+      ]},
+      { label: "Tools Used", tools: ["Agile / Scrum", "JIRA", "WCAG 2.0", "Cross-functional coordination", "Requirements documentation"] }
+    ]
+  },
+  tableau: {
+    tag: "Business Intelligence · Tableau · Data Analysis",
+    title: "The Fashion-Tech Operations & Profitability Diagnostic",
+    company: "Academic Project — Pace University · Jan 2026 – Feb 2026",
+    summary: "A top-down analytical framework to diagnose why a fashion-tech company with $130M in Q4 sales was still losing margin. Built a 3-tier Tableau dashboard — Executive, Operational, and Tactical — that identified California as the primary logistics risk and isolated worst-offender SKUs driving return-driven losses.",
+    metrics: [
+      { val: "$130M", lbl: "Total Q4 sales analyzed" },
+      { val: "13.5%", lbl: "Avg. return rate" },
+      { val: "-5.2%", lbl: "Margin erosion" },
+      { val: "3-tier", lbl: "Dashboard framework" }
+    ],
+    sections: [
+      { label: "The Problem Statement", content: "Despite steady gross sales growth, the organization was experiencing margin erosion driven by rising logistics costs and high product return volumes. The goal: identify whether the root causes were regional, category-specific, or product-driven — and hand the supply chain team actionable data to recover lost profits." },
+      { label: "The Framework: 3-Tier Top-Down Analysis", items: [
+        "Executive Tier: Dual-axis line chart visualizing the divergence between sales growth and net profit — establishing the financial baseline and proving the paradox",
+        "Operational Tier: Geographic heat map of return rates by US region — pinpointing the West Coast (California) as the highest-return, highest-logistics-cost territory across all operating regions",
+        "Tactical Tier: Worst-offender bar chart isolating specific SKUs with negative or near-zero profitability and high return frequency — informing procurement and quality control decisions"
+      ]},
+      { label: "Key Findings", items: [
+        "Sales-profit divergence was severe: Q4 sales reached $130M while net profit margins were eroded by -5.2% from logistics and returns",
+        "13.5% average return rate across the product portfolio — significantly above healthy industry benchmarks",
+        "California (West Coast) exhibited the highest return rates and logistics cost impact across all territories",
+        "Identified specific worst-offender SKUs (including Canon, Fellowes, HP product lines) contributing disproportionately to margin erosion"
+      ]},
+      { label: "Strategic Recommendations Delivered", items: [
+        "30-day: Initiate West Coast carrier performance audit and target worst-offender product quality checks",
+        "60-day: Pilot new regional fulfillment strategies and begin SKU rationalization",
+        "90-day: Full rollout of optimized logistics network and ongoing product portfolio refinement"
+      ]},
+      { label: "Technical Execution", items: [
+        "Established relational schema joining Orders and Returns tables on primary keys for full lifecycle traceability",
+        "Engineered custom calculated fields for return rate and profit margin analysis by SKU, region, and time period",
+        "Designed dashboard actions enabling drill-down from executive KPIs to regional to product-level root causes",
+        "Applied BI reporting best practices: dual-axis charts, choropleth heat maps, sorted bar charts with conditional color"
+      ]},
+      { label: "Tools Used", tools: ["Tableau", "SQL", "Excel", "Relational data modeling", "Dashboard actions", "Geographic heat maps", "Calculated fields"] }
+    ]
+  }
+};
+
+function openModal(id) {
+  const c = cases[id];
+  let metricsHTML = c.metrics.map(m => `<div class="modal-metric"><div class="val">${m.val}</div><div class="lbl">${m.lbl}</div></div>`).join('');
+  let sectionsHTML = c.sections.map(s => {
+    let body = '';
+    if (s.content) body = `<p>${s.content}</p>`;
+    if (s.items) body = `<ul class="cs-list">${s.items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    if (s.tools) body = `<div class="tools-list">${s.tools.map(t => `<span class="tool-badge">${t}</span>`).join('')}</div>`;
+    return `<div class="cs-section"><div class="cs-section-label">${s.label}</div>${body}</div>`;
+  }).join('');
+
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModalDirect()">×</button>
+      <div class="modal-tag">${c.tag}</div>
+      <h2 class="modal-title">${c.title}</h2>
+      <p class="modal-summary">${c.summary}</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-metrics">${metricsHTML}</div>
+      ${sectionsHTML}
+    </div>
+  `;
+  document.getElementById('modal-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+</script>
+</body>
+</html>
