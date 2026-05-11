@@ -62,6 +62,33 @@
   }
   .nav-links a:hover { opacity: 1; }
 
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--ink); border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 57px; left: 0; right: 0;
+    background: rgba(245,242,236,0.97); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border); z-index: 99;
+    padding: 16px 5vw 24px; flex-direction: column; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none; color: var(--ink); font-size: 1rem;
+    font-weight: 400; padding: 14px 0;
+    border-bottom: 1px solid var(--border); opacity: 0.8;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+
   .otw-badge {
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(40,200,64,0.1); border: 1px solid rgba(40,200,64,0.25);
@@ -246,6 +273,11 @@
   .filter-bar {
     display: flex; gap: 8px; flex-wrap: wrap;
     margin-bottom: 32px;
+  }
+  @media (max-width: 600px) {
+    .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-btn { flex-shrink: 0; }
   }
   .filter-btn {
     background: transparent; border: 1px solid var(--border);
@@ -604,6 +636,7 @@
     .modal-metrics { grid-template-columns: repeat(2, 1fr); }
     .modal-header, .modal-body { padding: 32px 28px; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .hero-stats { gap: 24px; flex-wrap: wrap; }
   }
 
@@ -667,7 +700,16 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <span class="otw-badge"><span class="otw-dot"></span>Open to work</span><a href="#contact" class="nav-cta">Let's Talk</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#work" onclick="closeMenu()">Work</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#thoughts" onclick="closeMenu()">Insights</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -778,6 +820,7 @@
       <div class="case-metrics">
         <div><div class="metric-val">103</div><div class="metric-label">Tasks tracked</div></div>
         <div><div class="metric-val">9</div><div class="metric-label">Project phases</div></div>
+        <div><div class="metric-val">100%</div><div class="metric-label">On-time delivery</div></div>
       </div>
     </div>
 
@@ -922,7 +965,7 @@
       <h2 class="section-title" style="margin-bottom: 28px;">Systems thinker.<br><em style="font-style:italic;color:var(--accent);">Operator at heart.</em></h2>
       <p class="about-text">I'm a New York-based operations and project management professional with an MS in Information Systems (GPA 3.89) from Pace University and a BE in Computer Science. I'm Salesforce Administrator certified, Six Sigma Yellow Belt, and Atlassian Agile certified — and I've put all three to work in real environments.</p>
       <p class="about-text">I've led cross-functional Agile teams, built Salesforce automation from scratch, shipped data quality programs across 15,000+ records, and written the playbooks that help organizations actually adopt new tools. Before New York, I spent 2.5 years as a Quality Analyst at LTIMindtree in Bangalore, managing Agile software delivery and WCAG 2.0 compliance across onshore and offshore teams.</p>
-      <p class="about-text">Currently targeting entry-level roles in <strong>Project Coordination, Business Analysis, Creative Operations,</strong> and <strong>Scrum/Agile delivery</strong> — roles where I can bring structure to ambiguity and keep things moving.</p>
+      <p class="about-text">Currently open to roles in <strong>Project Coordination, Business Analysis, Creative Operations,</strong> and <strong>Scrum/Agile delivery</strong> — roles where I can bring structure to ambiguity and keep things moving.</p>
       <div class="skills-grid">
         <div class="skill-item">Project Management <span>Jira, Asana, MS Project, RACI</span></div>
         <div class="skill-item">Business Analysis <span>User stories, gap analysis, process mapping</span></div>
@@ -939,13 +982,11 @@
 <section class="contact-section" id="contact">
   <div class="section-label">Contact</div>
   <h2 class="section-title">Let's build something<br><em>that works.</em></h2>
-  <p class="contact-sub">I'm actively looking for entry-level opportunities in Project Coordination, Business Analysis, and Operations. If you need someone who can think in systems and ship with clarity — let's talk.</p>
+  <p class="contact-sub">I'm actively open to opportunities in Project Coordination, Business Analysis, and Operations. If you need someone who can think in systems and ship with clarity — let's talk.</p>
   <a href="mailto:pulkitsinghhm@gmail.com" class="contact-email">pulkitsinghhm@gmail.com</a>
   <div class="contact-links">
-    <a href="https://linkedin.com/in/pulkitsinghh" class="contact-link">LinkedIn</a>
+    <a href="https://linkedin.com/in/pulkitsinghh" target="_blank" class="contact-link">LinkedIn</a>
     <a href="https://github.com/pulkit055" target="_blank" class="contact-link">GitHub</a>
-    <a href="https://docflow-pied.vercel.app" target="_blank" class="contact-link">DocFlow ↗</a>
-    <a href="https://www.circler.io" target="_blank" class="contact-link">Circler.io ↗</a>
   </div>
 </section>
 
@@ -1272,6 +1313,17 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 <script>
+function toggleMenu() {
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
 function filterWork(role, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
