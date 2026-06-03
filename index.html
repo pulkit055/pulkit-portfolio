@@ -437,6 +437,56 @@
   .skill-item:hover { border-color: var(--accent); background: var(--accent-soft); }
   .skill-item span { color: var(--muted); font-weight: 400; font-size: 0.75rem; display: block; margin-top: 2px; }
 
+
+  /* ── EXPERIENCE TIMELINE ── */
+  #experience { background: var(--cream); }
+  .exp-timeline { display: flex; flex-direction: column; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 56px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:first-child { padding-top: 0; }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-meta { padding-top: 6px; }
+  .exp-dates {
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--accent); letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  .exp-location {
+    font-size: 0.73rem; color: var(--muted);
+    margin-top: 5px; line-height: 1.4;
+  }
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 1.5rem; line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .exp-company {
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--accent); margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+  .exp-desc {
+    font-size: 0.92rem; line-height: 1.78;
+    color: var(--ink); font-weight: 300;
+    margin-bottom: 20px;
+    max-width: 580px; text-wrap: pretty;
+  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .exp-tag {
+    background: var(--paper);
+    border: 1px solid rgba(108,63,207,0.18);
+    padding: 4px 13px; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--accent);
+  }
+
   /* ── THOUGHT LEADERSHIP ── */
   .thought-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .thought-card {
@@ -625,6 +675,10 @@
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-visual { aspect-ratio: 4/3; }
     .thought-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 10px; }
+    .exp-meta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+    .exp-location::before { content: '·'; margin-right: 14px; color: var(--muted); display: none; }
+
     .modal-metrics { grid-template-columns: repeat(2, 1fr); }
     .modal-header, .modal-body { padding: 32px 28px; }
     .nav-links { display: none; }
@@ -801,6 +855,7 @@
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#thoughts">Insights</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -812,7 +867,8 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#thoughts" onclick="closeMenu()">Insights</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+    <a href="#thoughts" onclick="closeMenu()">Insights</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
@@ -1186,6 +1242,109 @@
     </div>
   </div>
 </section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label reveal">Experience</div>
+  <h2 class="section-title reveal">Where I've worked<br><em style="font-style:italic;color:var(--accent);">and what I actually did there.</em></h2>
+
+  <div class="exp-timeline">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-dates">Jun 2026 – Present</div>
+        <div class="exp-location">New York, NY</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Strategy &amp; Research Associate</div>
+        <div class="exp-company">Globoconsult</div>
+        <p class="exp-desc">Research-focused role supporting deal sourcing and investor engagement across technology, energy, manufacturing, and private capital markets. I prepare briefing notes and presentation materials for investor meetings, coordinate roadshow logistics, and help manage business development communications across family office and cross-border advisory mandates.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Market Research</span>
+          <span class="exp-tag">Investor Relations</span>
+          <span class="exp-tag">Business Development</span>
+          <span class="exp-tag">Cross-border Advisory</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-dates">May 2025 – Present</div>
+        <div class="exp-location">New York, NY</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Project Manager</div>
+        <div class="exp-company">CX by Design</div>
+        <p class="exp-desc">Managing Agile workflows for two active client-facing projects — running bi-weekly standups, clearing blockers, and keeping task tracking clean across ClickUp and Asana. I also own the end-to-end recruitment process (application review, interviews, intern onboarding) and contribute to internal process improvements around staffing strategy and project documentation.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Asana</span>
+          <span class="exp-tag">ClickUp</span>
+          <span class="exp-tag">Agile</span>
+          <span class="exp-tag">Project Management</span>
+          <span class="exp-tag">Recruiting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-dates">Jan 2025 – Dec 2025</div>
+        <div class="exp-location">Hoboken, NJ</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Project Manager</div>
+        <div class="exp-company">Circler.io</div>
+        <p class="exp-desc">Managing Jira tickets, writing user stories, and keeping project documentation up to date for an AI-powered bookkeeping platform. I run UAT and production testing cycles, collaborate on UX prototypes in Figma, and support marketing through newsletter campaigns in Mailchimp and social engagement tracking.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Jira</span>
+          <span class="exp-tag">UAT</span>
+          <span class="exp-tag">Figma</span>
+          <span class="exp-tag">Mailchimp</span>
+          <span class="exp-tag">User Stories</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-dates">Feb – Dec 2024</div>
+        <div class="exp-location">New York, NY</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Research Assistant</div>
+        <div class="exp-company">Pace University – Seidenberg School</div>
+        <p class="exp-desc">Supported academic research at the intersection of technology and education. Co-authored a publication on remote and hybrid teaching patterns — work that involved synthesizing qualitative data, structuring findings, and communicating results clearly across audiences.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Research</span>
+          <span class="exp-tag">Data Analysis</span>
+          <span class="exp-tag">Academic Writing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-dates">Aug 2021 – Feb 2024</div>
+        <div class="exp-location">Bengaluru, India</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Quality Assurance Analyst <span style="font-family:var(--sans);font-size:0.82rem;font-weight:400;color:var(--muted);">(Contractor)</span></div>
+        <div class="exp-company">Aflac</div>
+        <p class="exp-desc">2.5 years keeping Agile software delivery on track across onshore and offshore teams. Monitored SDLC processes, ran structured testing cycles, enforced WCAG 2.0 Level A &amp; AA compliance, and translated technical requirements into clear deliverables for business stakeholders. Good grounding in where projects tend to go wrong — and how to stop them from getting there.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Agile / Scrum</span>
+          <span class="exp-tag">WCAG 2.0</span>
+          <span class="exp-tag">UAT</span>
+          <span class="exp-tag">SDLC</span>
+          <span class="exp-tag">QA</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
