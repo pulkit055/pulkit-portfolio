@@ -1017,7 +1017,7 @@
       <div>
         <div class="case-tag">Project Management · Business Analysis · Salesforce</div>
         <h3 class="case-title">Salesforce Service Cloud Migration & VIP Routing Automation</h3>
-        <p class="case-desc">The support team at a luxury fashion retailer was running everything through Excel spreadsheets and manual email routing — which worked until it didn't. I mapped out the new architecture, built automated routing based on customer lifetime value in Salesforce Service Cloud, and spent a significant amount of time cleaning 15,000+ records before we went live. Zero tickets lost on launch day.</p>
+        <p class="case-desc">All inbound service requests routed through a single queue regardless of account tier — high-value clients waiting as long as standard accounts, creating escalation risk for the segment most critical to retention. Led requirements gathering, workflow design, and implementation for a full Salesforce Service Cloud reconfiguration: CLV-based automated routing, SLA tier differentiation, and a 15,000+ record data cleanse before go-live.</p>
       </div>
       <div class="case-metrics">
         <div><div class="metric-val">80%</div><div class="metric-label">Manual triage reduced</div></div>
@@ -1375,12 +1375,12 @@
       <p class="about-text">My work tends to involve cleaning up what's broken before building what's next — whether that's messy data, unclear processes, or tools nobody's using properly. Before moving to New York, I spent 2.5 years at Aflac in Bangalore as a Quality Analyst, keeping Agile delivery on track and managing WCAG 2.0 compliance across onshore and offshore engineering teams.</p>
       <p class="about-text">Currently looking for roles in <strong>Project Coordination, Business Analysis, Creative Operations,</strong> and <strong>Scrum/Agile delivery</strong> — anywhere the job is essentially "figure out what's broken and fix it."</p>
       <div class="skills-grid">
-        <div class="skill-item">Project Management <span>Jira, Asana, MS Project, RACI</span></div>
-        <div class="skill-item">Business Analysis <span>User stories, gap analysis, process mapping</span></div>
-        <div class="skill-item">CRM & Automation <span>Salesforce (certified), HubSpot</span></div>
-        <div class="skill-item">Data Visualization <span>Tableau, Power BI, Excel</span></div>
-        <div class="skill-item">Agile & Scrum <span>Sprints, standups, backlog mgmt</span></div>
-        <div class="skill-item">Quality & Compliance <span>Six Sigma, WCAG 2.0, UAT</span></div>
+        <div class="skill-item">Project Management <span>Agile · Scrum · Sprint Planning · Velocity Tracking · Jira · Asana · RACI</span></div>
+        <div class="skill-item">Business Analysis <span>Requirements Elicitation · Gap Analysis · Process Mapping · Functional Specs · Acceptance Criteria</span></div>
+        <div class="skill-item">CRM & Automation <span>Salesforce Administrator Certified · HubSpot · Workflow Automation · SLA Management</span></div>
+        <div class="skill-item">Data Visualization <span>Tableau · Excel (Advanced) · KPI Development · Operational Reporting</span></div>
+        <div class="skill-item">Agile & Scrum <span>Sprint Facilitation · Retrospectives · Backlog Refinement · Stakeholder Alignment · Change Management</span></div>
+        <div class="skill-item">Quality & Compliance <span>Six Sigma Yellow Belt · WCAG 2.0 · UAT · SDLC · Root Cause Analysis</span></div>
       </div>
     </div>
   </div>
@@ -1424,11 +1424,11 @@ const cases = {
       { val: "0", lbl: "Tickets lost" }
     ],
     sections: [
-      { label: "Context & Problem", content: "Velvet & Vogue managed customer support through a single shared inbox, with customer data scattered across disconnected Excel spreadsheets. High-value customers (CLV > $1,000) received the same priority as standard requests, creating retention risk. There was no single source of truth." },
-      { label: "Objective", content: "Migrate the legacy workflow into Salesforce Service Cloud, eliminate manual ticket triage, and ensure VIP customers receive dedicated, prioritized support — all without introducing custom code that would create future technical debt." },
+      { label: "Context & Problem", content: "The existing case management workflow routed all inbound service requests through a single queue, regardless of account tier. High-value clients experienced the same wait times as standard accounts, creating escalation risk and eroding service quality for the segment most critical to retention. Customer data was scattered across disconnected spreadsheets with no single source of truth." },
+      { label: "Objective", content: "Led requirements gathering, workflow design, and implementation coordination for a Salesforce Service Cloud reconfiguration targeting VIP case routing logic and SLA tier differentiation — without introducing custom code that would create future technical debt." },
       { label: "What I Did", items: [
-        "Conducted As-Is state analysis and documented the current-state pain points across shared inbox, data silos, and delayed response",
-        "Designed the To-Be system architecture: Web-to-Case integration, CLV-based assignment rules, centralized Contact and Case objects",
+        "Conducted stakeholder interviews across service, sales, and operations teams to surface current-state pain points and define routing criteria",
+        "Mapped the end-to-end case lifecycle and identified the exact decision nodes where tier logic needed to be applied",
         "Authored 10+ user stories with strict acceptance criteria aligned to business objectives",
         "Created a RACI matrix for clear ownership across technical and business stakeholders",
         "Built and maintained a Risk Register with mitigation strategies (including dirty data, spam submissions, user adoption)",
