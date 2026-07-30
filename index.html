@@ -202,6 +202,28 @@
     text-wrap: pretty;
     animation: fadeUp 0.8s 0.2s ease both;
   }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stat { display: flex; flex-direction: column; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 6px;
+  }
   .hero-actions {
     display: flex; gap: 12px; flex-wrap: wrap;
     animation: fadeUp 0.8s 0.3s ease both;
@@ -232,6 +254,14 @@
   .section-label {
     font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
     letter-spacing: 0.16em; color: var(--accent); margin-bottom: 16px;
+    opacity: 0.7;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--accent);
+    display: inline-block;
     opacity: 0.7;
   }
   .section-title {
@@ -289,12 +319,17 @@
     background: var(--cream);
     padding: 48px;
     cursor: pointer;
-    transition: background 0.25s;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
     position: relative; overflow: hidden;
     min-height: 380px;
     display: flex; flex-direction: column; justify-content: space-between;
   }
-  .case-card:hover { background: var(--accent-soft); }
+  .case-card:hover {
+    background: var(--accent-soft);
+    transform: scale(1.015);
+    box-shadow: 0 20px 48px rgba(108,63,207,0.15);
+    z-index: 2;
+  }
   .case-card.featured { grid-column: 1 / -1; min-height: 440px; }
   .case-card::after {
     content: '→';
@@ -968,6 +1003,13 @@
       <a href="#work" class="btn-primary">View Case Studies</a>
       <a href="/Pulkit's%20Resume.pdf" target="_blank" class="btn-secondary">Download Resume</a>
       <a href="#about" class="btn-secondary">About Me</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num" id="stat-0">0</div><div class="stat-label">Records Cleansed</div></div>
+      <div class="hero-stat"><div class="stat-num" id="stat-1">0</div><div class="stat-label">Faster VIP Response</div></div>
+      <div class="hero-stat"><div class="stat-num" id="stat-2">0</div><div class="stat-label">Manual Triage Reduced</div></div>
+      <div class="hero-stat"><div class="stat-num" id="stat-3">0</div><div class="stat-label">Tasks Tracked</div></div>
     </div>
 
   </div>
